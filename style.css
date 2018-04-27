@@ -1,0 +1,56 @@
+body {
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #686963;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+.title, .settings-header, .timer-title {
+    font-family: 'Montserrat', sans-serif;
+}
+.settings-tools, .timer-display {
+    font-family: 'Press Start 2P', cursive;
+}
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 20%;
+    background-color: #C84D59;
+    padding: 25px;
+    border: 1px white solid;
+    border-radius: 5px;
+    box-shadow: 13px 20px 68px -15px rgba(56,47,48,1);
+}
+.title {
+    color: #F1EDEE;
+    text-align: center;
+}
+.settings, .timer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #3D5467;
+    color: #F1EDEE;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 5px;
+}
+.settings-header, .settings-tools {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.settings-tools, .timer-display {
+    margin-top: 10px;
+}
+.play-reset-container, .timer-title, .timer-display, .pause-play-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
