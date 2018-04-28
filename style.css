@@ -12,6 +12,9 @@ h1, h2, h3, h4, h5, h6 {
 .settings-tools, .timer-display {
     font-family: 'Press Start 2P', cursive;
 }
+.fas {
+    cursor: pointer;
+}
 .container {
     position: absolute;
     top: 50%;
@@ -46,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-around;
     align-items: center;
 }
-.settings-tools, .timer-display {
+.settings-tools, .timer-display, .settings-reset {
     margin-top: 10px;
 }
 .play-reset-container, .timer-title, .timer-display, .pause-play-container {

@@ -8,6 +8,8 @@
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css" type="text/css">
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="javascript.js"></script>
     </head>
     <body>
         <div class="container">
@@ -20,28 +22,28 @@
                     <h3>Break</h3> 
                 </div>
                 <div class="settings-tools">
-                    <div>
+                    <div id="sessionDown">
                         <i class="fas fa-angle-down"></i>
                     </div>
-                    <div>P25P</div>
-                    <div>
+                    <div id="sessionSetting"></div>
+                    <div id="sessionUp">
                         <i class="fas fa-angle-up"></i>
                     </div>
-                    <div>
+                    <div id="breakDown">
                         <i class="fas fa-angle-down"></i>
                     </div>
-                    <div>P5P</div>
-                    <div>
+                    <div id="breakSetting"></div>
+                    <div id="breakUp">
                         <i class="fas fa-angle-up"></i>
                     </div>
                 </div>
             </div>
             <div class="timer">
                 <div class="play-reset-container">
-                    <div class="play-button">
+                    <div class="play-button" id="startButton">
                         <i class="fas fa-play"></i>
                     </div>
-                    <div class="reset-button">
+                    <div class="reset-button" id="resetButton">
                         <i class="fas fa-sync-alt"></i>
                     </div>
                 </div>
@@ -49,13 +51,13 @@
                     <h2>Session</h2>
                 </div>
                 <div class="timer-display">
-                    <h2>25:00</h2>
+                    <h2 id="sessionTimer">25:00</h2>
                 </div>
                 <div class="pause-play-container">
-                    <div class="pause-button">
+                    <div class="pause-button" id="pauseButton">
                         <i class="fas fa-pause"></i>
                     </div>
-                    <div class="stop-button">
+                    <div class="stop-button" id="stopButton">
                         <i class="fas fa-stop"></i>
                     </div>
                 </div>
