@@ -15,6 +15,7 @@ $(document).ready(function() {
     const resetButton = document.getElementById('resetButton');
     const pauseButton = document.getElementById('pauseButton');
     const stopButton = document.getElementById('stopButton');
+    const timerStatus = document.getElementById('timerStatus');
     
     let inter;
     let rounds = breakSetting.innerHTML;
@@ -46,22 +47,32 @@ $(document).ready(function() {
     }
     
     breakUp.onclick = function() {
-        breakSetting.innerHTML++;
+        if (breakSetting.innerHTML < 59) {
+            breakSetting.innerHTML++;
+        } else {
+            window.alert('The timer cannot be set above 60 minutes!');
+        }
     };
     
     breakDown.onclick = function() {
-        breakSetting.innerHTML--;
+        if (breakSetting.innerHTML > 1) {
+            breakSetting.innerHTML--;
+        } else {
+            window.alert('The timer cannot be set above 60 minutes!');
+        }
     };
     
     // timer manipulation functions
-    startButton.onclick = function() {
+    startButton.onclick = initTimer;
+        
+    function initTimer() {
         disableStartButton();
+        timerStatus.innerHTML = 'Session';
         let timeRemaining = sessionTimer.innerHTML.split(':');
             let fiveMinutes = (timeRemaining[0] * 60) + parseInt(timeRemaining[1]),
                 display = sessionTimer;
         startTimer(fiveMinutes, display);
     };
-    
     
     function resetTimer() {
         clearInterval(inter);
@@ -93,6 +104,16 @@ $(document).ready(function() {
             
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
+            
+            if (minutes == 0 && seconds == 0) {
+                clearInterval(inter);
+                if (timerStatus.innerHTML == 'Session') {
+                    breakInterval();
+                } else {
+                    sessionTimer.innerHTML = sessionSetting.innerHTML + ':00';
+                    initTimer();
+                }
+            }
 
             display.textContent = minutes + ":" + seconds; 
 
@@ -103,9 +124,15 @@ $(document).ready(function() {
             }
         };
         // we don't want to wait a full second before the timer starts
-        timer();
+        timer(); 
         inter = setInterval(timer, 1000);
-        }
+    }
+    
+    function breakInterval() {
+        let duration = breakSetting.innerHTML;
+        timerStatus.innerHTML = 'Break';
+        startTimer(duration*60, sessionTimer);
+    };
     
     function disableStartButton() {
         startButton.style.pointerEvents = 'none';
